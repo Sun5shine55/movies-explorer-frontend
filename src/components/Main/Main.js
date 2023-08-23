@@ -1,5 +1,6 @@
 import Promo from '../Promo/Promo';
 import Header from '../Header/Header.js';
+import AboutProject from '../AboutProject/AboutProject';
 
 function Main({isLoggedIn }) {
   return (
@@ -7,6 +8,7 @@ function Main({isLoggedIn }) {
       <Header
       />
       <Promo />
+      <AboutProject />
 
     </main>
   );
