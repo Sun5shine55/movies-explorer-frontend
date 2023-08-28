@@ -14,8 +14,7 @@ function AboutMe() {
                         Живу в городе Пскове. Мне нравится создавать красивые, интересные проекты и изучать новые технологии в Web разработке. Мечтаю развится в этой профессии и работать удаленно.</p>
                 <Link to= "https://github.com/Sun5shine55" className='student__github' target="_blank">Github</Link>
                 </div>
-                <img className="student__photo" src={photo} alt="фото студента"></img>
-
+                <img className="student__photo" src={photo} alt="фото студента Яндекс Практикума"></img>
             </div>
         </section>
     );

@@ -36,11 +36,13 @@
   width: 100%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 350px) {
   .header__container {
     max-width: 132px;
   }
 }
+
+
 
 .header__signup-button {
   cursor: pointer;
@@ -57,7 +59,7 @@
   margin-right: 30px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 350px) {
   .header__signup-button {
     font-size: 10px;
     max-width: 64px;
@@ -89,7 +91,7 @@
   opacity: 1;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 350px) {
   .header__signin-button {
     font-size: 10px;
     max-width: 54px;
@@ -135,4 +137,81 @@
 .header__account-button:hover {
   opacity: 0.5;
   cursor: pointer;
+}
+
+.header__movies-link {
+  color: #FFF;
+  text-align: right;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  text-decoration: none;
+  transition: 0.4s;
+  opacity: 1;
+}
+
+.header__movies-link:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+
+  .header__account-button,
+  .header__movies-link,
+  .header__savedmovies-link {
+    display: none;
+  }
+}
+
+.header__savedmovies-link {
+  color: #FFF;
+  text-align: right;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  text-decoration: none;
+  transition: 0.4s;
+  opacity: 1;
+}
+
+.header__savedmovies-link:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+
+.header__movie-navigation {
+  display: flex;
+  align-items: center;
+  max-width: 212px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.header__burger-menu {
+  display: block;
+  background: transparent;
+  background-image: url('../../images/burger-menu.svg');
+  width: 44px;
+  height: 44px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  transition: 0.4s;
+  opacity: 1;
+  border: none;
+}
+
+.header__burger-menu:hover {
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 769px) {
+  .header__burger-menu {
+    display: none;
+  }
 }
