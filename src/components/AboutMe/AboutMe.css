@@ -31,7 +31,7 @@
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 520px) {
   .student__title {
     padding-top: 70px;
     margin-bottom: 28px;
@@ -40,12 +40,11 @@
   }
 }
 
-
 .student__container {
   border-top: 1px solid #dadada;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-direction: row;
   padding-top: 66px;
   margin-bottom: 100px;
 }
@@ -56,7 +55,7 @@
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 520px) {
   .student__container {
     flex-direction: column-reverse;
     align-items: center;
@@ -66,11 +65,15 @@
   }
 }
 
-
-
 .student__info {
   max-width: 600px;
-  width: 100%
+  width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .student__info {
+    max-width: 500px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -79,6 +82,11 @@
   }
 }
 
+@media screen and (max-width: 520px) {
+  .student__info {
+    max-width: 250px;
+  }
+}
 
 .student__name {
   color: #FFF;
@@ -183,17 +191,17 @@
   max-width: 270px;
   object-fit: cover;
   border-radius: 10px;
-  max-height: 270px;
+  height: 327px;
 }
 
 @media screen and (max-width: 768px) {
   .student__photo {
     max-width: 255px;
-    height: 255px;
+    height: 307px;
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 520px) {
   .student__photo {
     max-width: 292px;
     height: 352px;

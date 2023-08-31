@@ -12,7 +12,7 @@ function Login ({ onLogin}) {
         <form className='register__form'>
           <fieldset className="register__form-group">
             <label className="register__label" htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" required placeholder='Email' className ="register__input"/>
+            <input type="email" id="email" name="email" required placeholder='Email' className ="register__input" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"/>
           </fieldset>
           <fieldset className="register__form-group">
             <label className="register__label" htmlFor="password">Пароль</label>

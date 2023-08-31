@@ -44,9 +44,8 @@
 .about__description {
   border-top: 1px solid #dadada;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 550px);
+  grid-template-columns: repeat(2, 1fr);
   column-gap: 40px;
-
 }
 
 @media screen and (max-width: 768px) {
@@ -146,7 +145,7 @@
 @media screen and (max-width: 768px) {
   .about__time {
     margin-bottom: 90px;
-    grid-template-columns: 228px 1fr;
+    grid-template-columns: 140px 1fr;
   }
 }
 

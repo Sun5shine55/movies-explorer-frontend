@@ -37,6 +37,8 @@ function Profile({ isLoggedIn, onLogin }) {
                                 <input
                                     name="name"
                                     type="text"
+                                    required
+                                    minLength="2" maxLength="12"
                                     className={isEditMode ? 'profile__input' : 'profile__input profile__input--readonly'}
                                     value={name}
                                     readOnly={!isEditMode}
@@ -48,6 +50,8 @@ function Profile({ isLoggedIn, onLogin }) {
                                 <input
                                     name="email"
                                     type="text"
+                                    required
+                                    pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
                                     className={isEditMode ? 'profile__input' : 'profile__input profile__input--readonly'}
                                     value={email}
                                     readOnly={!isEditMode}

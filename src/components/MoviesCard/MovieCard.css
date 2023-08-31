@@ -5,13 +5,13 @@
   position: relative;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1140px) {
   .movie {
     max-width: 339px;
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 720px) {
   .movie {
     max-width: 300px;
   }
@@ -24,7 +24,7 @@
   min-height: 201px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1140px) {
   .movie__image {
     max-width: 339px;
     min-height: 190px;
@@ -32,7 +32,7 @@
 }
 
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 720px) {
   .movie__image {
     max-width: 300px;
     min-height: 168px;

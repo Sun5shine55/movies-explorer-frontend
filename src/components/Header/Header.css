@@ -195,7 +195,7 @@
 .header__burger-menu {
   display: block;
   background: transparent;
-  background-image: url('../../images/burger-menu.svg');
+  background-image: url('../../images/burger-menu.png');
   width: 44px;
   height: 44px;
   background-repeat: no-repeat;
