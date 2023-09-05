@@ -7,7 +7,7 @@ import MovieThree from '../../images/movie-three.png'
 function SavedMoviesCardList() {
 
   return (
-    <section className="savedmovies__list">
+    <section className="movies saved-movies__list">
       <div className='movies__container'>
       <MovieCard
         image={MovieOne}

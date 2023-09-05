@@ -4,10 +4,10 @@ import logo from '../../images/logo.png'
 import { Link}  from 'react-router-dom';
 
 function Login ({ onLogin}) {
-    return (
-      <main>
-        <section className="login">
-        <Link to="/" className='logo__link' ><img className="logo" src={logo} alt="логотип"></img> </Link>
+  return (
+    <main>
+      <section className="register login">
+        <Link to="/" className='register__logo-link' ><img className="logo" src={logo} alt="логотип"></img> </Link>
         <h1 className='register__heading'>Рады видеть!</h1>
         <form className='register__form'>
           <fieldset className="register__form-group">
@@ -18,12 +18,12 @@ function Login ({ onLogin}) {
             <label className="register__label" htmlFor="password">Пароль</label>
             <input type="password" id="password" name="password" required  placeholder='Пароль' minLength="2" maxLength="12" className ="register__input"/>
           </fieldset>
-          <Link to="/movies"><button className='register__button' onClick={onLogin}>Войти</button></Link>
+          <Link to="/movies"><button className='register__button' type='submit' onClick={onLogin}>Войти</button></Link>
         </form>
         <p className='register__text'>Ещё не зарегистрированы? <Link className='register__link' to='/signup'>Регистрация</Link></p>
-        </section>
-        </main>
-    );
-  }
+      </section>
+    </main>
+  );
+}
 
-  export default Login
+export default Login

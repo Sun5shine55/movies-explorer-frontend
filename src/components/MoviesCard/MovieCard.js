@@ -1,7 +1,7 @@
 import './MovieCard.css';
 import { useState } from 'react';
-import savedIcon from '../../images/saved-icon.png';
-import deleteIcon from '../../images/delete-icon.png';
+import savedIcon from '../../images/saved-icon.svg';
+import deleteIcon from '../../images/delete-icon.svg';
 import { useLocation } from 'react-router-dom';
 
 function Movie({ image, name, duration }) {

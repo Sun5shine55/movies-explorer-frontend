@@ -1,17 +1,19 @@
 .about {
   max-width: 1140px;
-  margin: 0 auto;
+  margin: 110px auto 0 auto;
 }
 
 @media screen and (max-width: 768px) {
   .about {
     max-width: 668px;
+    margin: 90px auto 0 auto;
   }
 }
 
 @media screen and (max-width: 350px) {
   .about {
     max-width: 284px;
+    margin: 70px auto 0 auto;
   }
 }
 
@@ -23,20 +25,18 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.88px;
-  margin: 110px 0 23px;
+  margin: 0 auto 23px 0;
 }
 
 @media screen and (max-width: 768px) {
-  .about__title {
-    margin-top: 90px;
-  }
+  .about__title {}
 }
 
 @media screen and (max-width: 350px) {
   .about__title {
-    margin-top: 70px;
     font-size: 18px;
     letter-spacing: -0.72px;
+    margin: 0 auto 28px 0;
   }
 }
 
@@ -55,6 +55,14 @@
   }
 }
 
+@media screen and (max-width: 670px) {
+  .about__description {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+}
+
 @media screen and (max-width: 350px) {
   .about__description {
     grid-template-columns: repeat(auto-fit, 284px);
@@ -70,6 +78,10 @@
   .about__block {
     margin: 70px auto 93px;
   }
+
+  .about__block:first-child {
+    margin-bottom: 0;
+  }
 }
 
 @media screen and (max-width: 350px) {
@@ -81,7 +93,6 @@
     margin-top: 60px;
   }
 }
-
 
 .about__duration {
   color: #FFF;

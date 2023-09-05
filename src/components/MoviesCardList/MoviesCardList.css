@@ -47,7 +47,9 @@
 }
 
 @media screen and (max-width: 350px) {
-  .movies__container {}
+  .movies__container {
+    padding-top: 50px;
+  }
 }
 
 .movies__more-button {

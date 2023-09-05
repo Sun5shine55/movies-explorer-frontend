@@ -1,6 +1,7 @@
 .not-found {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
 }
 
 .not-found__container {
@@ -12,8 +13,7 @@
 }
 
 .not-found__title {
-  margin: 0;
-  margin-top: auto;
+  margin: auto;
   padding-bottom: 10px;
   color: #FFF;
   text-align: center;
@@ -29,7 +29,6 @@
     font-size: 80px;
   }
 }
-
 
 .not-found__subtitle {
   margin: 0;
@@ -49,7 +48,6 @@
 }
 
 .back-button {
-  margin-top: 184px;
   margin-bottom: 60px;
   padding: 0;
   color: #4285F4;
@@ -70,15 +68,6 @@
 
 @media (max-width: 560px) {
   .back-button {
-    margin-top: 284px;
-    margin-bottom: 30px;
-    font-size: 12px;
-  }
-}
-
-@media (max-height: 550px) {
-  .back-button {
-    margin-top: 50px;
     margin-bottom: 30px;
     font-size: 12px;
   }

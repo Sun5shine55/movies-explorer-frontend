@@ -9,9 +9,11 @@ const scrollToSection = (id) => {
 
   return (
     <nav className="navtab">
-      <button className='navtab__button' onClick={() => scrollToSection('about')}>О проекте</button>
-      <button className='navtab__button' onClick={() => scrollToSection('techs')}>Технологии</button>
-      <button className='navtab__button' onClick={() => scrollToSection('student')}>Студент</button>
+      <ul className="navtab__list">
+        <li className="navtab__list-item"><button className='navtab__button' type='button' onClick={() => scrollToSection('about')}>О проекте</button></li>
+        <li className="navtab__list-item"><button className='navtab__button' type='button' onClick={() => scrollToSection('techs')}>Технологии</button></li>
+        <li className="navtab__list-item"><button className='navtab__button' type='button' onClick={() => scrollToSection('student')}>Студент</button></li>
+      </ul>
     </nav>
   );
 }

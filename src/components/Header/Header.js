@@ -28,8 +28,8 @@ function Header({ isLoggedIn }) {
       {!isLoggedIn &&
         (
           <nav className='header__container'>
-            <NavLink to="/signup"><button className='header__signup-button'>Регистрация</button></NavLink>
-            <NavLink to="/signin"><button className='header__signin-button'>Войти</button></NavLink>
+            <NavLink to="/signup"><button className='header__signup-button' type='button'>Регистрация</button></NavLink>
+            <NavLink to="/signin"><button className='header__signin-button' type='button'>Войти</button></NavLink>
           </nav>
         )
       }
@@ -42,7 +42,7 @@ function Header({ isLoggedIn }) {
               <Link to="/saved-movies" className="header__savedmovies-link">Сохраненные фильмы</Link>
             </nav>
             <NavLink to="/profile" className='header__account-button'>Аккаунт</NavLink>
-            <button className="header__burger-menu" onClick={handleBurgerMenuToggle}></button>
+            <button className="header__burger-menu" onClick={handleBurgerMenuToggle} type='button'></button>
           </div>
         )
       }

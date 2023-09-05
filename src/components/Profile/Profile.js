@@ -29,7 +29,7 @@ function Profile({ isLoggedIn, onLogin }) {
             />
             <main>
                 <section className="profile">
-                    <h1 className='profile__heading'>Привет, {name}!</h1>
+                    <h1 className='profile__heading'>Привет,&nbsp;&nbsp;{name}!</h1>
                     <form className="profile__form">
                         <fieldset className="profile__inputs">
                             <div className="profile__input-container">
@@ -67,7 +67,7 @@ function Profile({ isLoggedIn, onLogin }) {
                             <button className='profile__edit-button' onClick={handleEditButtonClick}>
                                 Редактировать
                             </button>
-                            <button className='profile__logout-button'><Link className='profile__logout__link' to="/">Выйти из аккаунта</Link></button>
+                            <button className='profile__logout-button'><Link className='profile__logout-link' to="/">Выйти из аккаунта</Link></button>
                         </>
                         )}
                     </form>

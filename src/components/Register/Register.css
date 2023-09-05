@@ -28,7 +28,7 @@
 }
 
 @media screen and (max-width: 350px) {
-  .logo__link {
+  .register__logo-link {
     margin: 0 auto;
   }
 }

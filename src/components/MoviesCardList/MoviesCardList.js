@@ -17,7 +17,7 @@ function MoviesCardList() {
 
   return (
     <section className="movies__list">
-      <div className='movies__container'>
+      <div className='saved-movies movies__container'>
       <MovieCard
         image={MovieOne}
         name="33 слова о дизайне"
