@@ -1,6 +1,6 @@
 import './FilterCheckbox.css';
-import checkboxActive from '../../images/checkbox-active.png'
-import checkboxNotActive from '../../images/checkbox-not-active.png'
+import checkboxActive from '../../images/checkbox-active.svg'
+import checkboxNotActive from '../../images/checkbox-not-active.svg'
 
 function FilterCheckbox({isCheckboxChecked, onCheckboxChange}) {
 

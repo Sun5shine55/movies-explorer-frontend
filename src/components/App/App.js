@@ -22,7 +22,7 @@ function App() {
 };
 
   return (
-    <body className="App">
+    <div className="App">
       <Routes>
         <Route path="/" element={<Main
           isLoggedIn={isLoggedIn}
@@ -49,7 +49,7 @@ function App() {
         <Route path="/*" element={< NotFound
         />} />
       </Routes>
-    </body>
+    </div>
   );
 }
 

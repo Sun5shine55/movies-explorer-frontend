@@ -29,7 +29,7 @@ function Profile({ isLoggedIn, onLogin }) {
             />
             <main>
                 <section className="profile">
-                    <h1 className='profile__heading'>Привет,&nbsp;&nbsp;{name}!</h1>
+                    <h1 className='profile__heading'>Привет,&nbsp;{name}!</h1>
                     <form className="profile__form">
                         <fieldset className="profile__inputs">
                             <div className="profile__input-container">
