@@ -20,7 +20,7 @@ function Login ({ onLogin}) {
         <form className='register__form' onSubmit={handleLoginSubmit}>
           <fieldset className="register__form-group">
             <label className="register__label" htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" onChange={handleChange} value={values.email || ''} required placeholder='Email' className ="register__input" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"/>
+            <input type="email" id="email" name="email" onChange={handleChange} value={values.email || ''} required placeholder='Email' className ="register__input"/>
             {errors.email && <span className="register__error">{errors.email}</span>}
           </fieldset>
           <fieldset className="register__form-group">
