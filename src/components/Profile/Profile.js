@@ -67,7 +67,6 @@ function Profile({ isLoggedIn, handleUpdateUser, onSignOut}) {
                                     name="email"
                                     type="text"
                                     required
-                                    pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
                                     className={isEditMode ? 'profile__input' : 'profile__input profile__input--readonly'}
                                     value={values.email || ''}
                                     readOnly={!isEditMode}
