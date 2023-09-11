@@ -7,7 +7,7 @@ function FilterCheckbox({isCheckboxChecked, onChange }) {
       <div className="checkbox">
    <input className="checkbox__button" type="checkbox"  checked={isCheckboxChecked}
       onChange={onChange}/>
-      <img className="checkbox__image" src={isCheckboxChecked ? checkboxActive : checkboxNotActive} alt="переключатель" />
+      <img className="checkbox__image" src={isCheckboxChecked ? checkboxActive : checkboxNotActive} alt="переключатель" onClick={onChange}/>
    <p className='checkbox__text'>Короткометражки</p>
       </div>
   );
