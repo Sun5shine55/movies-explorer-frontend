@@ -5,19 +5,19 @@ import { Link}  from 'react-router-dom';
 import React from 'react'
 import useFormWithValidation from '../../utils/FormValidation';
 
-function Login ({ onLogin}) {
+function Login ({ onLogin }) {
   const { values, handleChange, errors, isValid } = useFormWithValidation();
   const handleLoginSubmit = (e) =>{
     e.preventDefault()
     const { email, password } = values;
-    onLogin(email, password)
+    onLogin({email, password})
   }
   return (
     <main>
       <section className="register login">
         <Link to="/" className='register__logo-link' ><img className="logo" src={logo} alt="логотип"></img> </Link>
         <h1 className='register__heading'>Рады видеть!</h1>
-        <form className='register__form' onSubmit={handleLoginSubmit}>
+        <form className='register__form' noValidate onSubmit={handleLoginSubmit}>
           <fieldset className="register__form-group">
             <label className="register__label" htmlFor="email">Email</label>
             <input type="email" id="email" name="email" onChange={handleChange} value={values.email || ''} required placeholder='Email' className ="register__input"/>

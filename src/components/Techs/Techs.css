@@ -150,7 +150,7 @@
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 430px) {
   .techs__block {
     max-width: 178px;
     display: grid;

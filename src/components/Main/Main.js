@@ -6,10 +6,10 @@ import Portfolio from '../Portfolio/Portfolio';
 import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer';
 
-function Main({ isLoggedIn }) {
+function Main() {
   return (
     <>
-      <Header isLoggedIn={isLoggedIn}/>
+      <Header />
       <main className="main">
         <Promo />
         <AboutProject />

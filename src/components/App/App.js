@@ -18,16 +18,16 @@ import ResultPopup from '../ResultPopup/ResultPopup';
 
 function App() {
 
-  const [isLoggedIn, setLoggedIn] = useState(false)
-  const [currentMovies, setCurrentMovies] = useState([])
-  const [currentUser, setCurrentUser] = useState({})
-  const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
-  const [filteredMovies, setFilteredMovies] = useState([]);
-  const [filteredSavedMovies, setFilteredSavedMovies] = useState([]);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [savedMovies, setSavedMovies] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [isLoggedIn, setLoggedIn] = useState(true)                      //  состояние пользователя залогинен или нет
+  const [currentMovies, setCurrentMovies] = useState([])                //  данные текущих фильмов
+  const [currentUser, setCurrentUser] = useState({})                    //  данные текущего пользователя
+  const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);    //  состояние чекбокса
+  const [filteredMovies, setFilteredMovies] = useState([]);             //  отфильтрованные фильмы
+  const [filteredSavedMovies, setFilteredSavedMovies] = useState([]);   //  отфильтрованные сохранённые фильмы
+  const [isSubmitted, setIsSubmitted] = useState(false);                //  состояние отправки запроса поиска фильмов
+  const [isLoading, setIsLoading] = useState(false);                    //  состояние загрузки - Preloader
+  const [savedMovies, setSavedMovies] = useState([]);                   //  данные сохранённых фильмов
+  const [searchTerm, setSearchTerm] = useState('');                     //  строка поискового запроса фильмов
 
   const [searchTermSavedMovies, setSearchTermSavedMovies] = useState('');
   const [isSavedMoviesCheckboxChecked, setIsSavedMoviesCheckboxChecked] = useState(false);
@@ -40,14 +40,14 @@ function App() {
 
   const isMoviesRoute = location.pathname === '/movies';
 
-  function handleResultPopupOpen() {
+  function handleResultPopupOpen() {       //всплытие успешного попапа в случае успешного входа
     setIsResultPopupOpen(true);
   }
-  function handleResultPopupClose() {
+  function handleResultPopupClose() {      //всплытие неуспешного попапа в случае неуспешной регистрации
     setIsResultPopupOpen(false)
   }
 
-  function handleUpdateUser(data) {
+  function handleUpdateUser(data) {        //изменение данных пользователя
     mainApi.editUserData(data)
       .then((data) => {
         setIsSuccessfullSign(true);
@@ -61,7 +61,7 @@ function App() {
       })
   }
 
-  function handleLogin(email, password) {
+  function handleLogin(email, password) {       //логин пользователя
     mainApi.authorize(email, password)
       .then(() => {
         setLoggedIn(true)
@@ -72,7 +72,7 @@ function App() {
       })
   }
 
-  function handleRegister(name, email, password) {
+  function handleRegister(name, email, password) {     //регистрация  пользователя
     mainApi.register(name, email, password)
       .then(() => {
         handleLogin(email, password)
@@ -82,7 +82,7 @@ function App() {
       })
   }
 
-  function verifyToken() {
+  function verifyToken() {      //проверка токена на  сервере
     mainApi.checkToken()
       .then((data) => {
         if (data) {
@@ -90,16 +90,18 @@ function App() {
           navigate('/movies')
         }
         else {
-          setLoggedIn(false)
+          setLoggedIn(true)
         }
       })
       .catch(err => {
-        setLoggedIn(false)
+        setLoggedIn(true)
         console.log(err.message)
       })
   }
 
-  function addMovie(movie) {
+  //ФУНКЦИИ С КАРТОЧКАМИ ФИЛЬМОВ
+
+  function addMovie(movie) {         //добавление фильма в сохранённые
     mainApi.addMovies({
       country: movie.country,
       director: movie.director,
@@ -122,7 +124,7 @@ function App() {
       })
   }
 
-  function deleteMovie(id) {
+  function deleteMovie(id) {                                       //удаление из сохранённых  фильмов
     const movieToDelete = savedMovies.find((movie) => {
       return location.pathname === '/movies' ? movie.movieId === id : movie._id === id;
     });
@@ -142,7 +144,7 @@ function App() {
     });
   }
 
-  useEffect(() => {
+  useEffect(() => {          //получение фильмов от Beatfilm
 
     moviesApi.getMovies()
       .then((data) => {
@@ -154,7 +156,7 @@ function App() {
       })
   }, [])
 
-  useEffect(() => {
+  useEffect(() => {           //получение пользовательских данных
     if (isLoggedIn) {
       mainApi.getUserData(currentUser)
         .then((data) => {
@@ -167,7 +169,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn])
 
-  useEffect(() => {
+  useEffect(() => {            //получение сохранённых фильмов
     if (isLoggedIn) {
       mainApi.getSavedMovies(currentUser._id)
         .then((movies) => {
@@ -180,7 +182,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn])
 
-  function clearUserInfo() {
+  function clearUserInfo() {        //очистка данных пользователя и фильмов после logout
     setLoggedIn(false);
     setCurrentUser({
       name: '',
@@ -192,7 +194,7 @@ function App() {
     setIsCheckboxChecked(false);
   }
 
-  function handleSignOut() {
+  function handleSignOut() {        //logout
     localStorage.clear()
     mainApi.logout()
       .then(() => {

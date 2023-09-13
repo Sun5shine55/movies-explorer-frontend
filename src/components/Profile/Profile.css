@@ -165,6 +165,13 @@
   cursor: pointer;
 }
 
+.profile__save-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: transparent;
+  border: 1px solid #FFF;
+}
+
 .profile__logout-link {
   text-decoration: none;
   color: #EE3465;

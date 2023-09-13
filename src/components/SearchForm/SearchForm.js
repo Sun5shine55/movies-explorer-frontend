@@ -11,7 +11,7 @@ function SearchForm({
 
   return (
     <section className="searchform">
-      <form className="searchform__container" onSubmit={  onSubmit }>
+      <form className="searchform__container" onSubmit={  onSubmit } noValidate>
         <input className='searchform__input' placeholder='Фильм' required  minLength="2" maxLength="12" value={searchTerm}
           onChange={onChange}></input>
         <button className='searchform__button' type="submit"></button>

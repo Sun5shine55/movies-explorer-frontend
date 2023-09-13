@@ -15,7 +15,7 @@ function SavedMovies({ isLoggedIn,
   onIsSubmitted,
   setIsLoading,
   onChange,
-  searchTerm,
+
   isMoviesRoute
  }) {
   return (
@@ -25,20 +25,18 @@ function SavedMovies({ isLoggedIn,
       />
       <main className="saved-movies">
         <SearchForm
-          movies={savedMovies}
           isCheckboxChecked={isCheckboxChecked}
           onCheckboxChange={onCheckboxChange}
           onSubmit={onSubmit}
           onIsSubmitted={onIsSubmitted}
           setIsLoading={setIsLoading}
           onChange = {onChange}
-          searchTerm = {searchTerm}
           />
         {isLoading ? (
           <Preloader />
         ) : (
           <MoviesCardList
-            movies={filteredMovies}
+            movies={savedMovies}
             onDeleteMovie={onDeleteMovie}
             isMoviesRoute = {isMoviesRoute}
           />
