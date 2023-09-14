@@ -146,19 +146,21 @@ function App() {
     });
   }
 
-  useEffect(() => {          //получение фильмов от Beatfilm
-    if (isSubmitted) {
+  useEffect(() => {
+    if (isSubmitted) {         //получение фильмов от Beatfilm
       moviesApi.getMovies()
       .then((data) => {
+        setIsLoading(true);
         setCurrentMovies(data)
-
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
       })
       .catch(err => {
         console.log(err.message)
       })
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [isSubmitted])
 
   useEffect(() => {           //получение пользовательских данных
     if (isLoggedIn) {
