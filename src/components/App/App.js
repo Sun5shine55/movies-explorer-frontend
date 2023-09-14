@@ -102,7 +102,8 @@ function App() {
 
   //ФУНКЦИИ С КАРТОЧКАМИ ФИЛЬМОВ
 
-  function addMovie(movie) {         //добавление фильма в сохранённые
+  function addMovie(movie, currentUser) {        //добавление фильма в сохранённые
+    console.log(currentUser);
     mainApi.addMovies({
       country: movie.country,
       director: movie.director,
