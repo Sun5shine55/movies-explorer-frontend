@@ -155,7 +155,7 @@ function App() {
       .catch(err => {
         console.log(err.message)
       })
-  }, [isLoggedIn, isSubmitted])
+  }, [isSubmitted])
 
   useEffect(() => {           //получение пользовательских данных
     if (isLoggedIn) {
