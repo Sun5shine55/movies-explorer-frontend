@@ -113,7 +113,6 @@ function App() {
       image: 'https://api.nomoreparties.co' + movie.image.url,
       trailerLink: movie.trailerLink,
       thumbnail: 'https://api.nomoreparties.co' + movie.image.url,
-      owner: userId,
       movieId: movie.id,
       nameRU: movie.nameRU,
       nameEN: movie.nameEN,
