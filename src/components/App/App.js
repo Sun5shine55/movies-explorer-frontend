@@ -153,7 +153,7 @@ function App() {
         setCurrentMovies(data)
         setTimeout(() => {
           setIsLoading(false);
-        }, 1000);
+        }, 500);
       })
       .catch(err => {
         console.log(err.message)
@@ -266,14 +266,9 @@ function App() {
   };
 
   const handleSubmitSavedMovies = (e) => {
-    setIsLoading(true);
     e.preventDefault();
     handleSearchSavedMovies()
     handleIsSubmitted();
-
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
   };
 
   useEffect(() => {
@@ -289,7 +284,6 @@ function App() {
     const savedFilteredMovies = localStorage.getItem('filteredMovies');
     const savedCurrentMovies = localStorage.getItem('currentMovies');
     const savedisSubmitted = localStorage.getItem('isSubmitted');
-    //const savedCurrentUser = localStorage.getItem('currentUser');
 
     if (savedSearchTerm && savedIsCheckboxChecked && savedFilteredMovies && savedCurrentMovies && savedisSubmitted) {
       setSearchTerm(savedSearchTerm);
@@ -297,7 +291,6 @@ function App() {
       setFilteredMovies(JSON.parse(savedFilteredMovies));
       setCurrentMovies(JSON.parse(savedCurrentMovies));
       setIsSubmitted(JSON.parse(savedisSubmitted));
-      //setCurrentUser(JSON.parse(savedCurrentUser));
     }
   }
 
@@ -307,7 +300,6 @@ function App() {
     localStorage.setItem('filteredMovies', JSON.stringify(filteredMovies));
     localStorage.setItem('currentMovies', JSON.stringify(currentMovies));
     localStorage.setItem('isSubmitted', JSON.stringify(isSubmitted));
-    //localStorage.setItem('currentUser', JSON.stringify(currentUser));
   }, [searchTerm, isCheckboxChecked, filteredMovies, currentMovies, isSubmitted]);
 
 
