@@ -12,12 +12,10 @@ function Profile({ isLoggedIn, handleUpdateUser, onSignOut}) {
 
   const currentUser = useContext(CurrentUserContext)
 
-  function changeUserInfo(event) {
-      event.preventDefault();
-      handleUpdateUser({
-          name: values.name,
-          email: values.email,
-      })
+  function changeUserInfo(e) {
+      e.preventDefault();
+      const { name, email } = values;
+      handleUpdateUser(name, email);
       setIsValid(false)
   }
 
