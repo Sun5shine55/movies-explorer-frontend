@@ -18,7 +18,7 @@ import ResultPopup from '../ResultPopup/ResultPopup';
 
 function App() {
 
-  const [isLoggedIn, setLoggedIn] = useState(false)                      //  состояние пользователя залогинен или нет
+  const [isLoggedIn, setLoggedIn] = useState(true)                      //  состояние пользователя залогинен или нет
   const [currentMovies, setCurrentMovies] = useState([])                //  данные текущих фильмов
   const [currentUser, setCurrentUser] = useState({})                    //  данные текущего пользователя
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);    //  состояние чекбокса
@@ -91,11 +91,11 @@ function App() {
           navigate('/movies')
         }
         else {
-          setLoggedIn(false)
+          setLoggedIn(true)
         }
       })
       .catch(err => {
-        setLoggedIn(false)
+        setLoggedIn(true)
         console.log(err.message)
       })
   }
@@ -147,17 +147,18 @@ function App() {
   }
 
   useEffect(() => {          //получение фильмов от Beatfilm
-    if (isLoggedIn) {
-    moviesApi.getMovies()
+    if (isSubmitted) {
+      moviesApi.getMovies()
       .then((data) => {
         setCurrentMovies(data)
+
       })
       .catch(err => {
         console.log(err.message)
       })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSubmitted])
+  }, [])
 
   useEffect(() => {           //получение пользовательских данных
     if (isLoggedIn) {
@@ -258,7 +259,6 @@ function App() {
   };
 
   const handleSubmitCurrentMovies = (e) => {
-    setIsLoading(true);
     e.preventDefault();
     handleSearchCurrentMovies();
     handleIsSubmitted();
@@ -269,6 +269,10 @@ function App() {
     e.preventDefault();
     handleSearchSavedMovies()
     handleIsSubmitted();
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   };
 
   useEffect(() => {
