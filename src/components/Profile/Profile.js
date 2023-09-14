@@ -23,7 +23,6 @@ function Profile({ isLoggedIn, handleUpdateUser, onSignOut}) {
   const handleEditButtonClick = () => {
       if (isEditMode) {
           setIsEditMode(false);
-
       } else {
           setIsEditMode(true);
       }

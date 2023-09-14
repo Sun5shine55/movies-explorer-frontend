@@ -171,7 +171,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn])
 
-  /*useEffect(() => {            //получение сохранённых фильмов
+  useEffect(() => {            //получение сохранённых фильмов
     if (isLoggedIn) {
       mainApi.getSavedMovies(currentUser._id)
         .then((movies) => {
@@ -182,7 +182,7 @@ function App() {
         })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoggedIn])*/
+  }, [isLoggedIn])
 
   function clearUserInfo() {        //очистка данных пользователя и фильмов после logout
     setLoggedIn(false);
@@ -290,15 +290,16 @@ function App() {
     const savedIsCheckboxChecked = localStorage.getItem('isCheckboxChecked');
     const savedFilteredMovies = localStorage.getItem('filteredMovies');
     const savedCurrentMovies = localStorage.getItem('currentMovies');
-    const savedisSubmitted = localStorage.getItem('isSubmitted')
+    const savedisSubmitted = localStorage.getItem('isSubmitted');
+    const savedCurrentUser = localStorage.getItem('currentUser');
 
-    if (savedSearchTerm && savedIsCheckboxChecked && savedFilteredMovies && savedCurrentMovies && savedisSubmitted) {
+    if (savedCurrentUser && savedSearchTerm && savedIsCheckboxChecked && savedFilteredMovies && savedCurrentMovies && savedisSubmitted) {
       setSearchTerm(savedSearchTerm);
       setIsCheckboxChecked(JSON.parse(savedIsCheckboxChecked));
       setFilteredMovies(JSON.parse(savedFilteredMovies));
       setCurrentMovies(JSON.parse(savedCurrentMovies));
       setIsSubmitted(JSON.parse(savedisSubmitted));
-
+      setCurrentUser(JSON.parse(savedCurrentUser));
     }
   }
 
@@ -308,8 +309,8 @@ function App() {
     localStorage.setItem('filteredMovies', JSON.stringify(filteredMovies));
     localStorage.setItem('currentMovies', JSON.stringify(currentMovies));
     localStorage.setItem('isSubmitted', JSON.stringify(isSubmitted));
-
-  }, [searchTerm, isCheckboxChecked, filteredMovies, currentMovies, isSubmitted]);
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+  }, [currentUser, searchTerm, isCheckboxChecked, filteredMovies, currentMovies, isSubmitted]);
 
 
 
