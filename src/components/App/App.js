@@ -18,7 +18,7 @@ import ResultPopup from '../ResultPopup/ResultPopup';
 
 function App() {
 
-  const [isLoggedIn, setLoggedIn] = useState(false)                      //  состояние пользователя залогинен или нет
+  const [isLoggedIn, setLoggedIn] = useState(false)                     //  состояние пользователя залогинен или нет
   const [currentMovies, setCurrentMovies] = useState([])                //  данные текущих фильмов
   const [currentUser, setCurrentUser] = useState({})                    //  данные текущего пользователя
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);    //  состояние чекбокса
@@ -101,9 +101,9 @@ function App() {
   }
 
   //ФУНКЦИИ С КАРТОЧКАМИ ФИЛЬМОВ
- const userId = currentUser._id;
+
   function addMovie(movie) {        //добавление фильма в сохранённые
-    console.log(userId);
+
     mainApi.addMovies({
       country: movie.country,
       director: movie.director,
@@ -289,15 +289,15 @@ function App() {
     const savedFilteredMovies = localStorage.getItem('filteredMovies');
     const savedCurrentMovies = localStorage.getItem('currentMovies');
     const savedisSubmitted = localStorage.getItem('isSubmitted');
-    const savedCurrentUser = localStorage.getItem('currentUser');
+    //const savedCurrentUser = localStorage.getItem('currentUser');
 
-    if (savedCurrentUser && savedSearchTerm && savedIsCheckboxChecked && savedFilteredMovies && savedCurrentMovies && savedisSubmitted) {
+    if (savedSearchTerm && savedIsCheckboxChecked && savedFilteredMovies && savedCurrentMovies && savedisSubmitted) {
       setSearchTerm(savedSearchTerm);
       setIsCheckboxChecked(JSON.parse(savedIsCheckboxChecked));
       setFilteredMovies(JSON.parse(savedFilteredMovies));
       setCurrentMovies(JSON.parse(savedCurrentMovies));
       setIsSubmitted(JSON.parse(savedisSubmitted));
-      setCurrentUser(JSON.parse(savedCurrentUser));
+      //setCurrentUser(JSON.parse(savedCurrentUser));
     }
   }
 
@@ -307,8 +307,8 @@ function App() {
     localStorage.setItem('filteredMovies', JSON.stringify(filteredMovies));
     localStorage.setItem('currentMovies', JSON.stringify(currentMovies));
     localStorage.setItem('isSubmitted', JSON.stringify(isSubmitted));
-    localStorage.setItem('currentUser', JSON.stringify(currentUser));
-  }, [currentUser, searchTerm, isCheckboxChecked, filteredMovies, currentMovies, isSubmitted]);
+    //localStorage.setItem('currentUser', JSON.stringify(currentUser));
+  }, [searchTerm, isCheckboxChecked, filteredMovies, currentMovies, isSubmitted]);
 
 
 
