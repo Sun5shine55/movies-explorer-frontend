@@ -47,8 +47,8 @@ function App() {
     setIsResultPopupOpen(false)
   }
 
-  function handleUpdateUser(data) {        //изменение данных пользователя
-    mainApi.editUserData(data)
+  function handleUpdateUser(name, email) {        //изменение данных пользователя
+    mainApi.editUserData(name, email)
       .then((data) => {
         console.log(data)
         setIsSuccessfullSign(true);

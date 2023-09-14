@@ -16,6 +16,7 @@ function Profile({ isLoggedIn, handleUpdateUser, onSignOut}) {
       e.preventDefault();
       const { name, email } = values;
       handleUpdateUser(name, email);
+      setIsEditMode(false);
       setIsValid(false);
   }
 
