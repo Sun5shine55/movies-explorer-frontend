@@ -101,9 +101,9 @@ function App() {
   }
 
   //ФУНКЦИИ С КАРТОЧКАМИ ФИЛЬМОВ
-
-  function addMovie(movie, currentUser) {        //добавление фильма в сохранённые
-    console.log(currentUser);
+ const userId = currentUser._id;
+  function addMovie(movie) {        //добавление фильма в сохранённые
+    console.log(userId);
     mainApi.addMovies({
       country: movie.country,
       director: movie.director,
@@ -113,7 +113,7 @@ function App() {
       image: 'https://api.nomoreparties.co' + movie.image.url,
       trailerLink: movie.trailerLink,
       thumbnail: 'https://api.nomoreparties.co' + movie.image.url,
-      owner: currentUser._id,
+      owner: userId,
       movieId: movie.id,
       nameRU: movie.nameRU,
       nameEN: movie.nameEN,
@@ -147,15 +147,16 @@ function App() {
   }
 
   useEffect(() => {          //получение фильмов от Beatfilm
-
+    if (isLoggedIn) {
     moviesApi.getMovies()
       .then((data) => {
         setCurrentMovies(data)
-
       })
       .catch(err => {
         console.log(err.message)
       })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSubmitted])
 
   useEffect(() => {           //получение пользовательских данных
@@ -261,10 +262,6 @@ function App() {
     e.preventDefault();
     handleSearchCurrentMovies();
     handleIsSubmitted();
-
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
   };
 
   const handleSubmitSavedMovies = (e) => {
@@ -272,10 +269,6 @@ function App() {
     e.preventDefault();
     handleSearchSavedMovies()
     handleIsSubmitted();
-
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
   };
 
   useEffect(() => {
