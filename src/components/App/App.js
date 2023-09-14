@@ -50,6 +50,7 @@ function App() {
   function handleUpdateUser(data) {        //изменение данных пользователя
     mainApi.editUserData(data)
       .then((data) => {
+        console.log(data)
         setIsSuccessfullSign(true);
         setCurrentUser(data);
         handleResultPopupOpen()
@@ -154,7 +155,7 @@ function App() {
       .catch(err => {
         console.log(err.message)
       })
-  }, [])
+  }, [isLoggedIn, isSubmitted])
 
   useEffect(() => {           //получение пользовательских данных
     if (isLoggedIn) {
@@ -169,7 +170,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn])
 
-  useEffect(() => {            //получение сохранённых фильмов
+  /*useEffect(() => {            //получение сохранённых фильмов
     if (isLoggedIn) {
       mainApi.getSavedMovies(currentUser._id)
         .then((movies) => {
@@ -180,7 +181,7 @@ function App() {
         })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoggedIn])
+  }, [isLoggedIn])*/
 
   function clearUserInfo() {        //очистка данных пользователя и фильмов после logout
     setLoggedIn(false);

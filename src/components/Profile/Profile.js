@@ -16,12 +16,13 @@ function Profile({ isLoggedIn, handleUpdateUser, onSignOut}) {
       e.preventDefault();
       const { name, email } = values;
       handleUpdateUser(name, email);
-      setIsValid(false)
+      setIsValid(false);
   }
 
   const handleEditButtonClick = () => {
       if (isEditMode) {
           setIsEditMode(false);
+
       } else {
           setIsEditMode(true);
       }
@@ -53,7 +54,7 @@ function Profile({ isLoggedIn, handleUpdateUser, onSignOut}) {
                                     required
                                     minLength="2" maxLength="12"
                                     className={isEditMode ? 'profile__input' : 'profile__input profile__input--readonly'}
-                                    value={values.name}
+                                    value={values.name || ''}
                                     readOnly={!isEditMode}
                                     onChange={handleChange}
                                 />
@@ -74,7 +75,7 @@ function Profile({ isLoggedIn, handleUpdateUser, onSignOut}) {
                             {errors.email && <span className="profile__error">{errors.email}</span>}
                         </fieldset>
                         {isEditMode ? (
-                            <button className='profile__save-button' onClick={handleEditButtonClick} disabled={(values.name === currentUser.name
+                            <button className='profile__save-button'  type='submit' disabled={(values.name === currentUser.name
                               && values.email === currentUser.email) || !isValid}>
                                 Сохранить
                             </button>
