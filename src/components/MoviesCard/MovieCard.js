@@ -24,31 +24,61 @@ function Movie({ movie, onAddMovie, onDeleteMovie }) {
 
   const renderSaveButton = () => {
     if (location.pathname === '/movies') {
-      if (isSaved) {
+      if (window.innerWidth > 350) {
+        if (isSaved) {
+          return (
+            <img
+              className="movie__saved-icon"
+              src={savedIcon}
+              alt="сохранено"
+              onClick={handleDeleteButtonClick}
+            />
+          );
+        } else {
+          return (
+            <button className="movie__savebutton" onClick={handleSaveButtonClick}>
+              Сохранить
+            </button>
+          );
+        }
+      } else {
+        if (isSaved) {
+          return (
+            <img
+              className="movie__saved-icon"
+              src={savedIcon}
+              alt="сохранено"
+              onClick={handleDeleteButtonClick}
+            />
+          );
+        } else {
+          return (
+            <button className="movie__savebutton_type_mobile" onClick={handleSaveButtonClick}>
+              Сохранить
+            </button>
+          );
+        }
+      }
+    } else if (location.pathname === '/saved-movies') {
+      if (window.innerWidth > 350) {
         return (
           <img
-            className="movie__saved-icon"
-            src={savedIcon}
-            alt="сохранено"
+            className="movie__delete-icon"
+            src={deleteIcon}
+            alt="удалить"
             onClick={handleDeleteButtonClick}
           />
         );
       } else {
         return (
-          <button className="movie__savebutton" onClick={handleSaveButtonClick}>
-            Сохранить
-          </button>
+          <img
+            className="movie__delete-icon_type_mobile"
+            src={deleteIcon}
+            alt="удалить"
+            onClick={handleDeleteButtonClick}
+          />
         );
       }
-    } else if (location.pathname === '/saved-movies') {
-      return (
-        <img
-          className="movie__delete-icon"
-          src={deleteIcon}
-          alt="удалить"
-          onClick={handleDeleteButtonClick}
-        />
-      );
     }
   };
 
