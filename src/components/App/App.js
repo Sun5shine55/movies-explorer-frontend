@@ -379,7 +379,7 @@ function App() {
               onLogin={handleLogin}
             />} />
 
-            <Route path="/*" element={< NotFound
+            <Route path="*" element={< NotFound
             />} />
 
           </Routes>
