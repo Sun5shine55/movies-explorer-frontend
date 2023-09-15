@@ -78,13 +78,12 @@ function MoviesCardList({ movies,
           ) : null
         )}
       </div>
-      { window.innerWidth > 450 ? (showButton && !hideButton() && (
+      { isMoviesRoute ? (showButton && !hideButton() && (
         <button className="movies__more-button" onClick={loadMoreMovies}>
           Ещё
         </button>
-      )) : (
-        <button className="movies__more-button_type_mobile"></button>
-      )}
+      )) : (<button className="movies__more-button_type_unvisible" ></button>)
+      }
     </section>
   );
 }

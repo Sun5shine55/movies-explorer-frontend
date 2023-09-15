@@ -45,7 +45,7 @@ function Movie({ movie, onAddMovie, onDeleteMovie }) {
         if (isSaved) {
           return (
             <img
-              className="movie__saved-icon_type_mobile"
+              className="movie__saved-icon"
               src={savedIcon}
               alt="сохранено"
               onClick={handleDeleteButtonClick}

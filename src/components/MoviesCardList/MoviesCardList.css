@@ -88,7 +88,7 @@
   text-align: center;
 }
 
-.movies__more-button_type_mobile {
+.movies__more-button_type_unvisible {
   max-width: 320px;
   width: 100%;
   min-height: 36px;
