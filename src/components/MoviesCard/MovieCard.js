@@ -24,7 +24,7 @@ function Movie({ movie, onAddMovie, onDeleteMovie }) {
 
   const renderSaveButton = () => {
     if (location.pathname === '/movies') {
-      if (window.innerWidth > 350) {
+      if (window.innerWidth > 450) {
         if (isSaved) {
           return (
             <img
@@ -60,7 +60,7 @@ function Movie({ movie, onAddMovie, onDeleteMovie }) {
         }
       }
     } else if (location.pathname === '/saved-movies') {
-      if (window.innerWidth > 350) {
+      if (window.innerWidth > 450) {
         return (
           <img
             className="movie__delete-icon"
