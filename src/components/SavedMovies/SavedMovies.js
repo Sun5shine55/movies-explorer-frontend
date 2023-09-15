@@ -15,9 +15,12 @@ function SavedMovies({ isLoggedIn,
   onIsSubmitted,
   setIsLoading,
   onChange,
-
+  searchTerm,
+  isSubmitted,
   isMoviesRoute
  }) {
+
+  console.log(filteredMovies)
   return (
     <>
       <Header
@@ -25,18 +28,21 @@ function SavedMovies({ isLoggedIn,
       />
       <main className="saved-movies">
         <SearchForm
+          movies={savedMovies}
           isCheckboxChecked={isCheckboxChecked}
           onCheckboxChange={onCheckboxChange}
           onSubmit={onSubmit}
           onIsSubmitted={onIsSubmitted}
           setIsLoading={setIsLoading}
           onChange = {onChange}
-          />
+          searchTerm = {searchTerm}
+
+        />
         {isLoading ? (
           <Preloader />
         ) : (
           <MoviesCardList
-            movies={savedMovies}
+          movies={filteredMovies}
             onDeleteMovie={onDeleteMovie}
             isMoviesRoute = {isMoviesRoute}
           />

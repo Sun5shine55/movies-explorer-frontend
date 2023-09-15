@@ -40,10 +40,10 @@ function App() {
 
   const isMoviesRoute = location.pathname === '/movies';
 
-  function handleResultPopupOpen() {       //всплытие успешного попапа в случае успешного входа
+  function handleResultPopupOpen() {       //открытие попапа результата изменения профиля
     setIsResultPopupOpen(true);
   }
-  function handleResultPopupClose() {      //всплытие неуспешного попапа в случае неуспешной регистрации
+  function handleResultPopupClose() {      //закрытие попапа результата изменения профиля
     setIsResultPopupOpen(false)
   }
 
@@ -223,8 +223,8 @@ function App() {
   const changeSavedMoviesCheckBox = () => {
     setIsSavedMoviesCheckboxChecked(!isSavedMoviesCheckboxChecked);
   }
-  const handleSearchCurrentMovies = () => {
 
+  const handleSearchCurrentMovies = () => {             //поиск из всех полученных фильмов от beat-film
     const filteredMovies = currentMovies.filter(
       (movie) =>
         movie.nameRU.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -233,8 +233,7 @@ function App() {
     handleSubmitForm(filteredMovies)
   };
 
-  const handleSearchSavedMovies = () => {
-
+  const handleSearchSavedMovies = () => {                 //поиск в сохранённых фильмах
     const filteredSavedMovies = savedMovies.filter(
       (movie) =>
         movie.nameRU.toLowerCase().includes(searchTermSavedMovies.toLowerCase()) &&
