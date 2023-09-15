@@ -13,9 +13,9 @@ function MoviesCardList({ movies,
   const movieCards = movies.slice(0, initialCards);
 
   function showInitialMovies() {
-    if (window.innerWidth < 350) {
+    if (window.innerWidth < 450) {
       setInitialCards(5);
-    } else if (window.innerWidth >= 350 && window.innerWidth <= 768) {
+    } else if (window.innerWidth >= 450 && window.innerWidth <= 768) {
       setInitialCards(8);
     } else if (window.innerWidth > 768) {
       setInitialCards(12);
@@ -35,9 +35,9 @@ function MoviesCardList({ movies,
   }, [movies]);
 
   function loadMoreMovies() {
-    if (window.innerWidth < 350) {
+    if (window.innerWidth < 450) {
       setInitialCards(initialCards + 2);
-    } else if (window.innerWidth >= 350 && window.innerWidth <= 1156) {
+    } else if (window.innerWidth >= 450 && window.innerWidth <= 1156) {
       setInitialCards(initialCards + 2);
     } else if (window.innerWidth > 1156) {
       setInitialCards(initialCards + 3);
@@ -78,10 +78,12 @@ function MoviesCardList({ movies,
           ) : null
         )}
       </div>
-      {showButton && !hideButton() && (
+      { window.innerWidth > 450 ? (showButton && !hideButton() && (
         <button className="movies__more-button" onClick={loadMoreMovies}>
           Ещё
         </button>
+      )) : (
+        <button className="movies__more-button_type_mobile"></button>
       )}
     </section>
   );
