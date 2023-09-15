@@ -150,6 +150,14 @@
   transition: all 0.5s;
 }
 
+movie__saved-icon_type_mobile {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  opacity: 1;
+  visibility: visible;
+}
+
 .movie:hover .movie__saved-icon {
   opacity: 1;
   visibility: visible;
@@ -182,13 +190,5 @@
 }
 
 .movie__delete-icon:hover {
-  opacity: 0.6;
-}
-
-.movie__delete-icon_type_mobile:hover {
-  opacity: 0.6;
-}
-
-.movie__savebutton_type_mobile:hover {
   opacity: 0.6;
 }
