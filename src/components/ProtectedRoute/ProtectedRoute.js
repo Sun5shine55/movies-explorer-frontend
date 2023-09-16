@@ -1,9 +1,7 @@
-import React from 'react'
-import { Navigate } from 'react-router-dom'
-function ProtectedRoute({ isLoggedIn, children }) {
-  if (!isLoggedIn) {
-    return <Navigate to="/signin" replace />
-  } else
-  return <Navigate to="/movies" replace />
+import { Navigate } from "react-router-dom";
+
+function ProtectedRoute({ element, isLoggedIn, ...props }) {
+  return isLoggedIn ? element : <Navigate to="/signin" replace />;
 }
+
 export default ProtectedRoute;
