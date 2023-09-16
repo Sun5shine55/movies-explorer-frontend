@@ -4,6 +4,6 @@ function ProtectedRoute({ isLoggedIn, children }) {
   if (!isLoggedIn) {
     return <Navigate to="/signin" replace />
   }
-  return children
+  return <Navigate to="/" replace />
 }
 export default ProtectedRoute;
