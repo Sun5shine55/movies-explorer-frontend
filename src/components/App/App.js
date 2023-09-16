@@ -18,7 +18,7 @@ import ResultPopup from '../ResultPopup/ResultPopup';
 
 function App() {
 
-  const [isLoggedIn, setLoggedIn] = useState(false)                     //  состояние пользователя залогинен или нет
+  const [isLoggedIn, setLoggedIn] = useState(true)                     //  состояние пользователя залогинен или нет
   const [currentMovies, setCurrentMovies] = useState([])                //  данные текущих фильмов
   const [currentUser, setCurrentUser] = useState({})                    //  данные текущего пользователя
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);    //  состояние чекбокса
@@ -95,11 +95,11 @@ function App() {
           navigate('/movies')
         }
         else {
-          setLoggedIn(false)
+          setLoggedIn(true)
         }
       })
       .catch(err => {
-        setLoggedIn(false)
+        setLoggedIn(true)
         console.log(err.message)
       })
   }
@@ -229,7 +229,7 @@ function App() {
   }
 
   const handleSearchCurrentMovies = () => {             //поиск из всех полученных фильмов от beat-film
-    if (searchTerm === '') {
+    if (isSubmitted && searchTerm === '') {
       setPopupText('Нужно ввести ключевое слово')
       handleResultPopupOpen()
     } else {
