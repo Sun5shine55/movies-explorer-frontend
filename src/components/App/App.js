@@ -232,6 +232,7 @@ function App() {
     if (isSubmitted && searchTerm === '') {
       setPopupText('Нужно ввести ключевое слово')
       handleResultPopupOpen()
+      setIsSubmitted(false);
     } else {
       const filteredMovies = currentMovies.filter(
         (movie) =>
