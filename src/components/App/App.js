@@ -34,6 +34,7 @@ function App() {
 
   const [isSuccessfullSign, setIsSuccessfullSign] = useState(false);
   const [isResultPopupOpen, setIsResultPopupOpen] = useState(false);
+  const [popupText, setPopupText] = useState('');
 
   const navigate = useNavigate()
   const location = useLocation();
@@ -45,6 +46,7 @@ function App() {
   }
   function handleResultPopupClose() {      //закрытие попапа результата изменения профиля
     setIsResultPopupOpen(false)
+    setPopupText('');
   }
 
   function handleUpdateUser(name, email) {        //изменение данных пользователя
@@ -52,12 +54,14 @@ function App() {
       .then((data) => {
         console.log(data)
         setIsSuccessfullSign(true);
+        setPopupText('Данные успешно обновлены!')
         setCurrentUser(data);
         handleResultPopupOpen()
       })
       .catch(err => {
         console.log(err.message)
         setIsSuccessfullSign(false)
+        setPopupText('При обновлении профиля произошла ошибка')
         handleResultPopupOpen()
       })
   }
@@ -145,23 +149,23 @@ function App() {
     });
   }
 
-  useEffect(() => {
-    if (isSubmitted) {         //получение фильмов от Beatfilm
+  useEffect(() => {                 //получение фильмов от Beatfilm
+    if (isSubmitted) {
+      setIsLoading(true);
       moviesApi.getMovies()
       .then((data) => {
-        setIsLoading(true);
         setCurrentMovies(data)
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 500);
+        setIsLoading(false);
       })
       .catch(err => {
+        setPopupText('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
+        handleResultPopupOpen()
         console.log(err.message)
       })
     }
   }, [isSubmitted])
 
-  useEffect(() => {           //получение пользовательских данных
+  useEffect(() => {                 //получение пользовательских данных
     if (isLoggedIn) {
       mainApi.getUserData(currentUser)
         .then((data) => {
@@ -225,12 +229,17 @@ function App() {
   }
 
   const handleSearchCurrentMovies = () => {             //поиск из всех полученных фильмов от beat-film
-    const filteredMovies = currentMovies.filter(
-      (movie) =>
-        movie.nameRU.toLowerCase().includes(searchTerm.toLowerCase()) &&
-        (!isCheckboxChecked || movie.duration <= 40)
-    );
-    handleSubmitForm(filteredMovies)
+    if (searchTerm === '') {
+      setPopupText('Нужно ввести ключевое слово')
+      handleResultPopupOpen()
+    } else {
+      const filteredMovies = currentMovies.filter(
+        (movie) =>
+          movie.nameRU.toLowerCase().includes(searchTerm.toLowerCase()) &&
+          (!isCheckboxChecked || movie.duration <= 40)
+      );
+      handleSubmitForm(filteredMovies)
+    }
   };
 
   const handleSearchSavedMovies = () => {                 //поиск в сохранённых фильмах
@@ -385,6 +394,7 @@ function App() {
           </Routes>
 
           <ResultPopup
+            infoText = {popupText}
             isOpen={isResultPopupOpen}
             isSuccessfull={isSuccessfullSign}
             onClose={handleResultPopupClose}
