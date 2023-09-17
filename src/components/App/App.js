@@ -250,6 +250,7 @@ function App() {
         (!isSavedMoviesCheckboxChecked || movie.duration <= 40)
     );
     handleSubmitSavedMoviesForm(filteredSavedMovies);
+    setSearchTermSavedMovies('');
   }
 
   const handleSubmitForm = (filteredMovies) => {
@@ -257,7 +258,7 @@ function App() {
   };
 
   const handleSubmitSavedMoviesForm = (filteredMovies) => {
-    setFilteredSavedMovies([]);
+    setFilteredSavedMovies(filteredMovies);
   };
 
   const handleChangeCurrentMovies = (e) => {
