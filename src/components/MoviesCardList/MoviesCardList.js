@@ -13,11 +13,11 @@ function MoviesCardList({ movies,
   const movieCards = movies.slice(0, initialCards);
 
   function showInitialMovies() {
-    if (window.innerWidth < 450) {
+    if (window.innerWidth < 720) {
       setInitialCards(5);
-    } else if (window.innerWidth >= 450 && window.innerWidth <= 768) {
+    } else if (window.innerWidth >= 720 && window.innerWidth <= 1140) {
       setInitialCards(8);
-    } else if (window.innerWidth > 768) {
+    } else if (window.innerWidth > 1140) {
       setInitialCards(12);
     }
     setShowButton(movies.length > initialCards);
@@ -35,11 +35,11 @@ function MoviesCardList({ movies,
   }, [movies]);
 
   function loadMoreMovies() {
-    if (window.innerWidth < 450) {
+    if (window.innerWidth < 720) {
       setInitialCards(initialCards + 2);
-    } else if (window.innerWidth >= 450 && window.innerWidth <= 1156) {
+    } else if (window.innerWidth >= 720 && window.innerWidth <= 1140) {
       setInitialCards(initialCards + 2);
-    } else if (window.innerWidth > 1156) {
+    } else if (window.innerWidth > 1140) {
       setInitialCards(initialCards + 3);
     }
   }
