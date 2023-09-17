@@ -281,7 +281,7 @@ function App() {
 
   const handleToSavedMovies = () => {
     setSearchTermSavedMovies('');
-    setFilteredSavedMovies([]);
+    setFilteredSavedMovies(savedMovies);
   }
 
   useEffect(() => {
