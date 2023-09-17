@@ -18,7 +18,7 @@ import ResultPopup from '../ResultPopup/ResultPopup';
 
 function App() {
 
-  const [isLoggedIn, setLoggedIn] = useState(true)                     //  состояние пользователя залогинен или нет
+  const [isLoggedIn, setLoggedIn] = useState(false)                     //  состояние пользователя залогинен или нет
   const [currentMovies, setCurrentMovies] = useState([])                //  данные текущих фильмов
   const [currentUser, setCurrentUser] = useState({})                    //  данные текущего пользователя
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);    //  состояние чекбокса
@@ -95,11 +95,11 @@ function App() {
           navigate('/movies')
         }
         else {
-          setLoggedIn(true)
+          setLoggedIn(false)
         }
       })
       .catch(err => {
-        setLoggedIn(true)
+        setLoggedIn(false)
         console.log(err.message)
       })
   }
@@ -250,15 +250,14 @@ function App() {
         (!isSavedMoviesCheckboxChecked || movie.duration <= 40)
     );
     handleSubmitSavedMoviesForm(filteredSavedMovies);
-    setSearchTermSavedMovies('');
   }
 
   const handleSubmitForm = (filteredMovies) => {
     setFilteredMovies(filteredMovies);
   };
 
-  const handleSubmitSavedMoviesForm = (filteredMovies) => {
-    setFilteredSavedMovies(filteredMovies);
+  const handleSubmitSavedMoviesForm = (filteredSavedMovies) => {
+    setFilteredSavedMovies(filteredSavedMovies);
   };
 
   const handleChangeCurrentMovies = (e) => {
