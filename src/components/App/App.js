@@ -28,10 +28,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);                    //  состояние загрузки - Preloader
   const [savedMovies, setSavedMovies] = useState([]);                   //  данные сохранённых фильмов
   const [searchTerm, setSearchTerm] = useState('');                     //  строка поискового запроса фильмов
-
   const [searchTermSavedMovies, setSearchTermSavedMovies] = useState('');
   const [isSavedMoviesCheckboxChecked, setIsSavedMoviesCheckboxChecked] = useState(false);
-
+  const [isSwithRenderSavedMovies, setSwithRenderSavedMovies] = useState(false);
   const [isSuccessfullSign, setIsSuccessfullSign] = useState(false);
   const [isResultPopupOpen, setIsResultPopupOpen] = useState(false);
   const [popupText, setPopupText] = useState('');
@@ -245,14 +244,15 @@ function App() {
         (!isSavedMoviesCheckboxChecked || movie.duration <= 40)
     );
     handleSubmitSavedMoviesForm(filteredSavedMovies);
+    setSwithRenderSavedMovies(true);
   }
 
   const handleSubmitForm = (filteredMovies) => {
     setFilteredMovies(filteredMovies);
   };
 
-  const handleSubmitSavedMoviesForm = (filteredSavedMovies) => {
-    setFilteredSavedMovies(filteredSavedMovies);
+  const handleSubmitSavedMoviesForm = (filteredMovies) => {
+    setFilteredSavedMovies(filteredMovies);
   };
 
   const handleChangeCurrentMovies = (e) => {
@@ -277,6 +277,11 @@ function App() {
 
   const handleIsSubmitted = () => {
     setIsSubmitted(true);
+  }
+
+  const handleToSavedMovies = () => {
+    setSearchTermSavedMovies('');
+    setFilteredSavedMovies([]);
   }
 
   useEffect(() => {
@@ -350,6 +355,7 @@ function App() {
                 onChange={handleChangeCurrentMovies}
                 searchTerm={searchTerm}
                 isMoviesRoute={isMoviesRoute}
+                handleToSavedMovies={handleToSavedMovies}
 
               />} isLoggedIn={isLoggedIn} />} />
 
@@ -368,6 +374,7 @@ function App() {
                 setIsLoading={setIsLoading}
                 onChange={handleChangeSavedMovies}
                 searchTerm={searchTermSavedMovies}
+                isSwithRenderSavedMovies={isSwithRenderSavedMovies}
               />} isLoggedIn={isLoggedIn} />} />
 
             <Route path="/profile" element={<ProtectedRoute element={

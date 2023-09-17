@@ -21,12 +21,14 @@ function Movies({ isLoading,
   showButton,
   hideButton,
   loadMoreMovies,
-  movieCards, }) {
+  movieCards,
+  handleToSavedMovies }) {
 
   return (
     <>
       <Header
         isLoggedIn={isLoggedIn}
+        handleToSavedMovies={handleToSavedMovies}
       />
       <main className="movies">
       <SearchForm

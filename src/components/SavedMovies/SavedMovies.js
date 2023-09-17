@@ -17,7 +17,8 @@ function SavedMovies({ isLoggedIn,
   onChange,
   searchTerm,
   isSubmitted,
-  isMoviesRoute
+  isMoviesRoute,
+  isSwithRenderSavedMovies
  }) {
 
   console.log(filteredMovies)
@@ -41,7 +42,7 @@ function SavedMovies({ isLoggedIn,
           <Preloader />
         ) : (
           <MoviesCardList
-            movies={savedMovies}
+            movies={isSwithRenderSavedMovies ? filteredMovies : savedMovies}
             onDeleteMovie={onDeleteMovie}
             isMoviesRoute = {isMoviesRoute}
           />
