@@ -215,11 +215,6 @@ function App() {
       })
   }
 
-
-  const handleIsSubmitted = () => {
-    setIsSubmitted(true);
-  }
-
   const changeCheckBox = () => {
     setIsCheckboxChecked(!isCheckboxChecked);
   }
@@ -279,6 +274,10 @@ function App() {
     handleSearchSavedMovies()
     handleIsSubmitted();
   };
+
+  const handleIsSubmitted = () => {
+    setIsSubmitted(true);
+  }
 
   useEffect(() => {
     verifyToken()

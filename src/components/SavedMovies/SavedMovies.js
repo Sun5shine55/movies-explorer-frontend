@@ -41,7 +41,7 @@ function SavedMovies({ isLoggedIn,
           <Preloader />
         ) : (
           <MoviesCardList
-            movies={isSubmitted ? filteredMovies : savedMovies}
+            movies={savedMovies}
             onDeleteMovie={onDeleteMovie}
             isMoviesRoute = {isMoviesRoute}
           />

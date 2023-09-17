@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 
-function Header({ isLoggedIn }) {
+function Header({ isLoggedIn, handleToSavedMovies }) {
 
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
@@ -39,7 +39,7 @@ function Header({ isLoggedIn }) {
           <div className='header__movie-container'>
             <nav className='header__movie-navigation'>
               <Link to="/movies" className="header__movies-link">Фильмы</Link>
-              <Link to="/saved-movies" className="header__savedmovies-link">Сохраненные фильмы</Link>
+              <Link to="/saved-movies" className="header__savedmovies-link" onClick={handleToSavedMovies}>Сохраненные фильмы</Link>
             </nav>
             <NavLink to="/profile" className='header__account-button'>Аккаунт</NavLink>
             <button className="header__burger-menu" onClick={handleBurgerMenuToggle} type='button'></button>
